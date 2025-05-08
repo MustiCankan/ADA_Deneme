@@ -57,6 +57,7 @@ GOOGLE_API_KEY=your_google_api_key
 
 ```bash
 uvicorn app.main:app --reload
+ngrok http 8000 # in the other terminal
 ```
 
 📝 Features (Planned & Implemented)
