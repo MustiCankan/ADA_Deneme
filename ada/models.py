@@ -27,12 +27,16 @@ SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
 
 class Conversation(Base):
-    __tablename__ = "reservations"
+    __tablename__ = "new_reservations"
 
     id = Column(Integer, primary_key=True, index=True)
     sender = Column(String)
-    message = Column(String)
-    response = Column(String)
+    name = Column(String)
+    surname = Column(String)
+    date = Column(String)
+    time = Column(String)
+    reservation_type = Column(String)
+    party_size = Column(String)
 
 
 Base.metadata.create_all(engine)

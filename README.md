@@ -56,7 +56,7 @@ GOOGLE_API_KEY=your_google_api_key
 🧪 Running the App
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn ada.agent:app --reload
 ngrok http 8000 # in the other terminal
 ```
 

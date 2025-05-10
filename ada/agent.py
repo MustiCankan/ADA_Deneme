@@ -108,13 +108,17 @@ def reservation_maker(
         confirmation_message = (
             f"OK! I've successfully made a reservation for {name} {surname} on {date} at {time} "
             f"for {party_size} guest(s) for {reservation_type}. "
-            f"Is there anything else I can help you with?"
+            f"Have a fun! See you soon!"
         )
 
         conv = Conversation(
-            sender=whatsapp_number, # Placeholder: should be the user's identifier
-            message=reservation_details_summary,
-            response=confirmation_message
+            sender=whatsapp_number,
+            name = name,
+            surname = surname,
+            date =  date,
+            time =  time,
+            reservation_type = reservation_type,
+            party_size = str(party_size)
         )
         db.add(conv)
         db.commit()
@@ -145,22 +149,22 @@ root_agent = Agent(
     description="Restoran için rezervasyon alır ve veritabanına kaydeder.",
     instruction=(
         """
-        Rezervasyon alabilen yardımcı bir asistan olarak görev yapıyorsun. Sen ADA’sın, Spirit AI rezervasyon asistanı.
+        Rezervasyon alabilen yardımcı bir asistan olarak görev yapıyorsun. Sen ADA’sın, Spirit AI rezervasyon asistanısın.
         Müşteriyi sıcak bir şekilde karşıla ve nasıl yardımcı olabileceğini sor.
+
+    
         Aşağıdaki bilgileri toplaman gerekiyor:
         - name (isim)
         - surname (soyadı)
         - date (tarih, YYYY-MM-DD formatında olmalı)
         - time (saat, HH:MM formatında olmalı)
-        - reservation_type (rezervasyon tipi, örneğin: akşam yemeği, öğle yemeği, kahvaltı, özel etkinlik)
+        - reservation_type (rezervasyon tipi, örneğin: loca, bakcstage, sahne)
         - party_size (kişi sayısı, bir sayı olmalı)
 
-        Bu alanlardan herhangi biri eksikse, kullanıcıya nazikçe sor (örn. "Harika! Hangi tarih için rezervasyon yapmak istersiniz?").
-        Tüm bilgiler tamamsa, SADECE aşağıdaki JSON formatında çıktıyı vererek `reservation_maker` aracını çağır:
+        Bu alanlardan herhangi biri eksikse, kullanıcıya nazikçe sor (örn. "Harika! Hangi tarih için rezervasyon yapmak istersiniz?"). Eğer bu bilgi daha önceden verildiyse onu tekrardan sorma.
+        Eğer bugün için rezervasyon istiyorsa `get_current_time_in_turkey` aracını kullan.
+        Tüm bilgiler tamamsa, bütün bilgilerin olduğu bir onaylama mesaji gönder. Eğer onaylarsa,`reservation_maker` aracını rezervasyonu kullanarak veri tabanına gönder.
 
-        ```json
-        {"name": "İsim", "surname": "Soyisim", "date": "YYYY-MM-DD", "time": "HH:MM", "reservation_type": "Rezervasyon Tipi", "party_size": KişiSayısı}
-        ```
         (Not: `party_size` bir sayı olmalıdır, tırnak içinde olmamalıdır.)
         JSON'dan sonra başka hiçbir şey yazma. Araç rezervasyonu kaydedecek ve dönen onayı kullanıcıya iletmeni sağlayacak. Bu onayı olduğu gibi kullanıcıya ilet.
         Eğer kullanıcı sadece "merhaba", "selam" gibi bir selam verirse, kendini tanıt ("Merhaba, ben ADA, Spirit AI rezervasyon asistanıyım. Size nasıl yardımcı olabilirim?") ve ne yapabileceğini sor.
