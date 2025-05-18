@@ -1,3 +1,5 @@
+![ADA Logo](./logo.png)
+
 # ADASpirit
 ADA is a digital AI assistant tool created by Spirit AI. It is designed to handle automated conversations, such as restaurant reservations and customer service interactions, using state-of-the-art large language models (LLMs) and messaging APIs like Twilio WhatsApp.
 
