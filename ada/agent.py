@@ -39,7 +39,7 @@ MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
 AGENT_MODEL = MODEL_GEMINI_2_0_FLASH # Starting with Gemini
 
 # Adding API Keys
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCKlN9iQEr9oBlbpD4B0VU6TaeNvrsty1s"
+os.environ["GOOGLE_API_KEY"] = ""
 
 # ✅ Get environment variables using os.environ.get
 db_user           = os.environ.get("DB_USER")
