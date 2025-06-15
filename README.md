@@ -1,6 +1,6 @@
 ![ADA Logo](./logo.png)
 
-# ADASpirit
+
 ADA is a digital AI assistant tool. It is designed to handle automated conversations, such as restaurant reservations and customer service interactions, using state-of-the-art large language models (LLMs) and messaging APIs like Twilio WhatsApp.
 
 🚀 Quick Start
@@ -19,7 +19,7 @@ adk web
 
 The project strucure will be :
 ```bash
-ADASpirit/
+
 ├── app/
 │   ├── __init__.py
 │   ├── main.py         # FastAPI main application
