@@ -1,7 +1,5 @@
-![ADA Logo](./logo.png)
 
-
-ADA is a digital AI assistant tool. It is designed to handle automated conversations, such as restaurant reservations and customer service interactions, using state-of-the-art large language models (LLMs) and messaging APIs like Twilio WhatsApp.
+A digital AI assistant tool. It is designed to handle automated conversations, such as restaurant reservations and customer service interactions, using state-of-the-art large language models (LLMs) and messaging APIs like Twilio WhatsApp.
 
 🚀 Quick Start
 
@@ -35,7 +33,7 @@ The project strucure will be :
 ```
 
 🖥️ How It Works
-	•	ADA listens for incoming WhatsApp messages via the Twilio API.
+	•	Listens for incoming WhatsApp messages via the Twilio API.
 	•	The system collects structured reservation information:
 	•	Name
 	•	Date (YYYY-MM-DD)
